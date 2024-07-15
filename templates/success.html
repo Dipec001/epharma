@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% trans Thanks for your order!" %} </title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .home{
+      background-color: rgb(11, 236, 11);
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <p>
+      {% trans "We appreciate your business! If you have any questions, please email" %}
+      <a href="mailto:orders@example.com">orders@example.com</a>.
+    </p>
+    <a class="home" href="{% url 'index' %}">{% trans "Go back Home" %}</a>
+  </section>
+</body>
+</html>

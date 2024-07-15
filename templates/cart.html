@@ -1,0 +1,58 @@
+{% extends 'header.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="cart-page">
+    <p class="cart-num">{% trans "Cart" %} ({{ cart_items_with_subtotal|length }} {% trans "Items" %})</p>
+    {% if cart_items_with_subtotal %}
+    {% for entry in cart_items_with_subtotal %}
+    <div class="cart-main-things">
+        <div class="cart-first">
+            <div>
+                <img src="{{ entry.item.drug.image.url }}" alt="{{ entry.item.drug.name }}" width="100" height="100">
+            </div>
+            <div>
+                <p>{{ entry.item.drug.name }}</p>
+                <a href="{% url 'remove_from_cart' entry.item.drug.id %}"><i class="fa-solid fa-trash"></i>{% trans "Remove" %}</a>
+            </div>
+        </div>
+        <div class="cart-2">
+            <div>
+                <p>{% trans "Quantity" %}</p>
+                <div class="add-minus-button">
+                    <a href="{% url 'subtract_from_cart' entry.item.drug.id %}" class="subtract" {% if entry.item.quantity == 1 %}disabled{% endif %}><i class="fa-solid fa-minus"></i></a>
+                    <p class="cart-no">{{ entry.item.quantity }}</p>
+                    <a href="{% url 'add-to-cart' entry.item.drug.id %}" class="add"><i class="fa-solid fa-plus"></i></a>
+                </div>
+            </div>
+            <div>
+                <p>{% trans "Unit Price" %}</p>
+                <p class="cart-price">{{ request.session.currency_symbol }}{{ entry.item.drug.price|floatformat:2 }}</p>
+            </div>
+            <div>
+                <p>{% trans "Total Price" %}</p>
+                <p class="cart-total">{{ request.session.currency_symbol }}{{ entry.subtotal|floatformat:2 }}</p>
+            </div>
+        </div>       
+    </div>
+    {% endfor %}
+    <div class="item-totals">
+        <div>
+            <p>{% trans "Subtotal" %}: {{ request.session.currency_symbol }}{{ total|floatformat:2 }}</p>
+            <p>VAT: {{ request.session.currency_symbol }}0.00</p>
+            <p>{% trans "Total" %}: {{ request.session.currency_symbol }}{{ total|floatformat:2 }}</p>
+            <p>{% trans "Note: Delivery Fee would be made available when you place an order" %}</p>
+        </div>
+        <div class="shop-options">
+            <a class="item-shop" href="{% url 'products' %}">{% trans "Continue Shopping" %}</a>
+            <a class="item-shop checkout" href="{% url 'create_checkout_session' %}">{% trans "Checkout" %}</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="empty-cart">
+        <img src="{% static 'images/empty-cart.webp' %}" alt="Empty Cart">
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

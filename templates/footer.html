@@ -1,0 +1,64 @@
+{% load static %}
+{% load i18n %}
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="news-letter">
+                <h4>{% trans "Subscribe To Our Newsletter To Get Updates on Our Latest Offers!" %}</h4>
+                <div class="subcribe-news">
+                    <input type="text" id="email" placeholder="{{ footer_email_placeholder }}">
+                    <button type="submit">{% trans "Subscribe" %}</button>
+                </div>
+                <h4>{% trans "Download The eMedicStore App To Get Access To Exclusive Offers" %}</h4>
+                <div>
+                    <a href="#"><img class="store" src="{% static 'images/google-play.png' %}" alt="play store logo"></a>
+                    <a href="#"><img class="store" src="{% static 'images/app-store.png' %}" alt="app store logo"></a>
+                </div>
+                <div class="info-12">
+                    <div>
+                        <span><i class="fa-solid fa-location-dot"></i></span>
+                        <p>Enugu,Nigeria</p>
+                    </div>
+                    <div>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <p>+2348147250442</p>
+                    </div>
+                    <div>
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        <p>divine@epharma.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-footer">
+                <div class="footer-links">
+                    <ul class="link123">
+                        <li><a href="/">{% trans "Home" %}</a></li>
+                        <li><a href="/about/">{% trans "About Us" %}</a></li>
+                        <li><a href="/services/">{% trans "Services" %}</a></li>
+                        <li><a href="/contact/">{% trans "Contact Us" %}</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a>Facebook</li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a>Twitter</li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a>Instagram</li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a>LinkedIn</li>
+                    </ul>
+                </div>            
+                <div>
+                    <ul>
+                        <li>{% trans "Privacy Policy" %}</li>
+                        <li>{% trans "Return Policy" %}</li>
+                        <li>{% trans "Quality Policy" %}</li>
+                        <li>{% trans "Send us a Message" %}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Divine EPHARMA. {% trans "All rights reserved." %}</p>
+        </div>
+    </div>
+</footer>

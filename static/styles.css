@@ -1,0 +1,1740 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .logo{
+    position: relative;
+} */
+.logo img{
+    width: 80px;
+}
+.logo h2{
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    color: #03a84e;
+    font-family: "Jaro", sans-serif;
+    font-size: 22px;
+}
+.logo h2 span{
+    color: #0B63B2;
+}
+.logo i{
+    font-size: 2.5em;
+    color: #0A6847;
+    padding-right: 20px;
+}
+header div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header{
+    max-width: 100%;
+    width: 100%;
+    background-color: white;
+    padding-top: 20px;
+    position: relative;
+    z-index: 1000; /* Ensures the header stays on top of other content */
+}
+
+.search-input{
+    width: 350px;
+    height: 50px;
+    padding-left: 10px;
+    border: 1px solid #0B63B2;
+    font-size: 16px; /* Adjust font size as needed */
+}
+.search {
+    cursor: pointer;
+    height: 50px;
+    color: white;
+    background-color: #0B63B2;
+    padding: 0 10px;
+    border: none;
+    margin-left: -5px;
+}
+.search-input:focus{
+    outline: none;
+    border: 2px solid #0B63B2;
+}
+.register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;  
+    position: relative;
+}
+/* Main container for country selection */
+.country {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    cursor: pointer;
+}
+
+/* Modal styling */
+.modale {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    backdrop-filter: blur(30px); /* Blur background */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Adjusted top margin for better centering */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Increased max width */
+    border-radius: 10px;
+    text-align: center; /* Center content */
+}
+
+/* Close button for the modal */
+.close {
+    color: white;
+    float: right;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Country option inside modal */
+.modal-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns layout */
+    gap: 10px; /* Gap between the options */
+    justify-items: center; /* Center items horizontally */
+}
+
+.country-option {
+    display: flex;
+    align-items: center;
+    justify-content: left; /* Ensure left alignment for consistency */
+    padding: 10px;
+    cursor: pointer;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in the width */
+    color: white;
+}
+
+.country-option img {
+    margin-right: 10px; /* Ensure consistent space between flag and text */
+}
+
+.country-option:hover {
+    background-color: black;
+    border-radius: 10px;
+}
+
+
+.profile-icon{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.account{
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px 15px;
+}
+.floating-cart{
+    position: fixed;
+    right: 4%;
+    bottom: 6%;
+    z-index: 999;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-item-number {
+    position: absolute; /* Positions the number relative to the floating-cart */
+    top: -10px; /* Adjust as needed */
+    right: -10px; /* Adjust as needed */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.empty-cart {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center;     /* Centers the image vertically */
+    text-align: center;      /* Ensures text alignment if any */
+}
+
+.empty-cart img {
+    max-width: 100%;         /* Ensures the image doesn’t overflow its container */
+    height: auto;            /* Maintains the aspect ratio */
+    width: 70%;              /* Initial width */
+}
+
+.second{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.active{
+    color: #0B63B2;    
+}
+.nav-options{
+    display:flex;
+    justify-content: center;
+    background-color: aliceblue;
+    margin-top: 80px;
+}
+.nav-options a{
+    text-decoration: none;
+    padding: 16px 24px;
+    color: black;
+}
+.nav-options a.active {
+    font-weight: bold;  /* Bold text for active link */
+    color: #0B63B2;  /* Custom color for active link */
+}
+#hamburger-icon{
+    font-size: 30px;
+    cursor: pointer;
+}
+.side-bar {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 240px; /* Define the width of the sidebar */
+    height: 100vh;
+    background-color: white;
+    padding: 20px; /* General padding for the sidebar */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    z-index: 1000; /* Ensures the sidebar stays above other content */
+}
+.menu-item a.active {
+    color: #0B63B2;  /* Black text for active link */
+    font-weight: bold;  /* Bold text for active link */
+}
+#hamburger-close {
+    align-self: flex-end;
+    font-size: 24px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+.menu-item {
+    display: flex;
+    margin: 15px 0; /* Space between menu items */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #333; /* Adjust color as needed */
+    padding-left: 20px; /* Padding from the left */
+}
+
+.home-categories{
+    padding: 0 10px;
+}
+.cate-p{
+    font-size: 20px;
+    background-color: #03a84e;
+    color: white;
+    padding: 20px 20px;
+    margin-top: 100px;
+    border-radius: 5px;  
+    display: flex; 
+    align-items: center;  
+    font-weight: 600;  
+}
+.home-cate{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: mandatory;
+
+}
+.home-cate div{
+    margin: 0 15px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+}
+.home-cate div p{
+    font-weight: 600;
+}
+.home-cate div img{
+    width: 300px;
+    border-radius: 10px;
+}
+.home-cate-button{
+    border: none;
+    color: white;
+    background-color: #0B63B2;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.home-cate-button-item{
+    border: none;
+    color: white;
+    background-color: #03a84e;
+    padding: 8px 13px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+
+/* CSS styles for the moving text */
+.moving-text-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+}
+
+.moving-text {
+    position: absolute;
+    top: 0;
+    white-space: nowrap; /* Ensures text stays on one line */
+    animation: moveLeftRight 15s linear infinite;
+    color: #0B63B2;
+    font-weight: bold;
+}
+
+/* Keyframes animation definition */
+@keyframes moveLeftRight {
+    0% { left: calc(100% + 10px); } /* Start position outside viewport */
+    100% { left: -120%; } /* End position outside viewport */
+}
+
+/* Style the second sentence */
+.moving-text:nth-child(2) {
+    animation-delay: -15s; /* Delay the start of animation for second sentence */
+  }
+
+/* CSS styles for the options box login options button style */
+.options-box {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 10px;
+    width: 100px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 10px 0 10px;
+}
+
+.options-box button {
+    width: 100%;
+    margin-bottom: 10px;
+    color: white;
+    background-color: #03a84e;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 5px;
+    
+}
+
+/* Styling the login page */
+.login-container {
+    display: grid;
+    max-width: 90%;
+    margin: 50px auto;   
+    grid-template-columns: 43% auto 43%;
+}
+
+.vertical-lines {
+    height: auto;
+    width: 1px;
+    margin: 0 15px;
+    background-color: #0B63B2;
+}
+.login{
+    text-align: center;
+}
+.forgot-password{
+    float: right;
+}
+
+.login-content,
+.register-content {
+    text-align: start;
+}
+.login-container h3{
+    color: #0B63B2;
+}
+.login-container button{
+    background-color: #0B63B2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: inherit;
+}
+.login-content form input{
+    width: 100%;
+    height: 40px;
+}
+.login-content button,
+.register-content button{
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    margin: 30px 0;
+}
+
+/* styling for hide and show passoword */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Styling for register page */
+.register-container{
+    text-align: center;
+    max-width: 100%;
+    margin: 50px auto;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    max-width: 80%; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+    text-align: start;
+}
+.form-group {
+    margin-bottom: 10px; /* Add margin between form groups */
+}
+
+.form-group label {
+    margin-bottom: 5px; /* Add margin below labels */
+}
+
+.form-group input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.form-group input:focus {
+    outline: none;
+}
+.form-group button{
+    background-color: #0B63B2;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 20px;
+
+}
+
+
+.register-container form {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20px;
+}
+/* Register heading styles */
+.register-heading {
+    width: 90%; /* Increase width to accommodate longer text */
+    max-width: 600px; /* Limit the maximum width */
+    margin: 20px auto;
+    padding: 0 1rem; /* Add padding for better readability */
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    text-align: center;
+}
+
+.register-heading h3 {
+    color: #0B63B2;
+    font-size: 2rem; /* Adjust font size for better fit */
+    margin-bottom: 1rem;
+}
+
+.register-heading p {
+    font-size: 1rem; /* Adjust font size for better readability */
+    line-height: 1.5; /* Increase line-height for better readability */
+    word-wrap: break-word; /* Allow breaking long words */
+}
+
+/* styling for footer */
+.site-footer {
+    color: #fff;
+    padding-top: 20px;
+    margin-top: 100px;
+    max-width: 100%;
+}
+
+.footer-container {
+    background-image: url('/static/images/footerBg.png');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 50px;
+    margin-top: 50px;
+}
+
+
+
+.right-footer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 10px;
+
+}
+.right-footer div ul li{
+    margin-bottom: 10px;
+}
+
+.info div {
+    display: flex;
+    align-items: center;
+}
+
+/* Additional styles for specific elements as needed */
+.subcribe-news {
+    width: 75%;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 10px;
+}
+.link123 li a{
+    color: white;
+    text-decoration: none;
+}
+/* Style icons as needed */
+.info-12{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-top: 50px;
+}
+.info-12 div{
+    display: flex;
+}
+.info-12 div p{
+    margin-left: 5px;
+}
+
+.store {
+    max-width: 100px; /* Adjust the maximum width */
+    max-height: 50px; /* Adjust the maximum height */
+}
+.news-letter h4{
+    font-size: 20px;
+    word-break: break-word; /* Break long words */
+    hyphens: auto; /* Add hyphens for longer words */
+}
+
+.subcribe-news input{
+    padding: 15px 10px;
+    border: 1px solid #0B63B2;
+    margin: 20px 0;
+}
+.subcribe-news input:focus{
+    outline: none;
+}
+.subcribe-news button{
+    cursor: pointer;
+    border: none;
+    background-color: #03a84e;
+    color: white;
+    padding: 5px 10px;
+    margin: 20px 0;
+    white-space: nowrap; /* Prevent text wrapping */
+
+}
+.footer-bottom{
+    text-align: center;
+    margin-top: 50px;
+}
+.social-icons li a i {
+    margin-right: 8px; /* Adjust the value as needed */
+    color: white;
+}
+
+/* contact page styles */
+.contact-title{
+    /* Gradient background */
+    background: linear-gradient(to right, #E0FBE2, #87ceeb, #5bc0de, #82dfaa);
+    text-align: center;
+    padding-top: 9rem;
+    padding-bottom: 7rem;
+    min-height: 500px;
+    margin-top: -20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+.contact-title h1{
+    font-size: 4rem;
+    color: #0B63B2;
+}
+.contact-title p {
+    max-width: 100%; /* ensure it uses full width available */
+    width: 100%; /* ensure it uses full width available */
+    margin: auto;
+    font-size: 1.2rem; /* slightly reduced font size */
+    padding: 0 1rem; /* added padding for better readability */
+    box-sizing: border-box;
+    word-wrap: break-word; /* allow breaking long words */
+}
+
+.contact-body{
+    margin: 150px auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.contact-body div{
+    flex: 1;
+}
+
+.contact-options,
+.contact-form {
+    width: 100%;
+}
+
+.contact-form{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+.contact-form input,
+.contact-form textarea{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea{
+    height: 150px;
+}
+.contact-form button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #0B63B2;
+    color: white;
+    border-radius: 5px;
+}
+
+.contact-options,
+.contact-form {
+    width: 100%;
+}
+
+
+.contact-card{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for elevation */
+}
+.questions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    margin-right: 30px;
+}
+.contact-options{
+    margin-bottom: 25px;
+}
+.contact-form form input,
+.contact-form form textarea{
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact-form form input:focus,
+.contact-form form textarea:focus{
+    outline: none;
+    border: 1px solid #5bc0de;
+    border-radius: 5px;
+}
+.contact-options label{
+    margin-right: 10px;
+}
+/* styling for the products page */
+.wrap1 {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Style for the filter card */
+.filter-card {
+    flex: 1; /* Takes 20% of the space */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    margin-right: 20px;
+    border-radius: 5px;  
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 20px;
+    padding: 20px;
+    position: relative;
+}
+.filter-card p{
+    background-color: gainsboro;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter-card p:hover{
+    background-color: #ccc;
+}
+
+/* Style for the all products section */
+.products-page{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.all-products {
+    flex: 4; /* Takes 80% of the space */
+}
+
+.products-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Fixed number of columns to 3 */
+    gap: 30px;
+    padding: 10px;
+}
+.drug {
+    text-align: center;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden; /* Ensure the content doesn't overflow */
+}
+
+.drug-link {
+    display: block;
+    color: inherit; /* Ensure the link inherits the text color */
+    text-decoration: none; /* Remove the default underline of the link */
+}
+
+.drug img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the parent while maintaining aspect ratio */
+    display: block; /* Ensures there are no extra spaces around the image */
+}
+
+.drug button{
+    margin: auto;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0B63B2;
+    color: white;
+    border-radius: 5px;
+}
+.med-name{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #0B63B2;
+}
+.all-products h2{
+    background-color: #0B63B2;
+    padding: 10px 10px 20px 20px;
+    border-radius: 5px;
+    color: white;
+}
+.left-pro a{
+    text-decoration: none;
+    color: black;
+    letter-spacing: 0.1em;
+}
+.dropdown button{
+    width: 150px;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+#menu-toggle i{
+    font-size: 1.5em;
+}
+
+/* Services styles */
+.services-line{
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+    /* align-items: center;
+    justify-content: space-between; */
+    padding: 50px;
+    margin: 100px 0;
+    gap: 30px;
+}
+
+.services-line.reverse {
+    direction: rtl; /* Reverse the flow of items */
+}
+
+.services-line div {
+    padding: 0 30px;
+}
+
+.service-img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.service-text{
+    flex: 1;
+    padding-right: 20px;
+    text-align: justify;
+
+}
+.serveh1{
+    font: 2.5em sans-serif;
+    color: #0B63B2;
+    margin-bottom: 15px;
+}
+.service-text p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.service-features {
+    text-align: center;
+    margin: 0 auto;
+    /* background-color: #F9F9F9; */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.service-features-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.service-features-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin: 0 50px;
+}
+
+.service-features-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-features-item img {
+    max-width: 100%;
+    height: auto;
+    width: 60px;
+}
+
+.service-features-item p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+    .service-features-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-features-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Item page */
+.item-first-div {
+    justify-content: start;
+    background-color: #0B63B2;
+    padding: 15px 5px 10px 20px;
+    align-items: center;
+}
+
+.item-first-div p {
+    display: inline-block;
+    color: white;
+    font-size: 1.5em;
+}
+
+.item-item-div {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.item-item-img-div, .item-sec-div {
+    flex: 1;
+    max-width: 48%;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.item-item-img-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-item-img-div img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Maintain aspect ratio, contain within parent */
+}
+
+.item-sec-div h1, .item-sec-div h3 {
+    color: #0B63B2;
+}
+
+
+.add-minus {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.add-minus i {
+    font-size: 1.2em;
+    border: 2px solid #03a84e;
+    border-radius: 5px;
+    padding: 5px 2px;
+    color: #03a84e;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.add-minus i:hover {
+    color: white;
+    background-color: #03a84e;
+}
+
+.add-minus a {
+    background-color: #03a84e;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cart-no {
+    padding-right: 10px;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+.cart-page {
+    padding: 10px;
+}
+
+.item-totals {
+    text-align: right;
+}
+
+.item-shop {
+    text-decoration: none;
+    background-color: #0B63B2;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 5px;
+    width: 500px;
+}
+
+.checkout {
+    background-color: #03a84e;
+    padding: 10px 80px;
+    border-radius: 5px;
+}
+.cart-num{
+    font-weight: 900;
+    color: #03a84e;
+}
+.cart-main-things{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    margin: 10px 0;
+    background-color: rgb(246, 246, 246);
+    border-radius: 10px;
+    padding: 35px 10px;
+    
+}
+.cart-first{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.cart-2{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.add-minus-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add-minus-button i{
+    padding: 5px 3px;
+    border: 2px solid #03a84e;
+    color: #03a84e;
+    border-radius: 3px;
+}
+
+
+/* styling for about page */
+
+.about-us{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+    margin: 50px auto;
+    max-width: 100%;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.about-us div{
+    max-width: 100%;
+}
+.about-us div h2{
+    font-weight: 600;
+    color: #0B63B2;
+}
+.about-image{
+    width: 100%;
+    max-height: 700px;
+}
+.about-page hr{
+    width: 85%;
+    margin: auto;
+    height: 5px;
+}
+.mission{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 100px;
+    margin-bottom: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.mission-title{
+    font-size: 24px;
+    background-color: #03a84e;
+    border-radius: 5px;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+.vision-title{
+    font-size: 24px;
+    background-color: #0B63B2;
+    border-radius: 5px;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+.business-title{
+    text-align: center;
+}
+.business-title h2{
+    font-weight: 600;
+    color: #0B63B2;
+}
+.business-main {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr; /* Define columns for the content and the vertical lines */
+    gap: 20px; /* Adjust the gap as needed */
+    align-items: center; /* Vertically align items */
+    background-color: #0B63B2;
+    color: white;
+    padding: 30px auto;
+}
+
+.business-main-left {
+    padding: 20px; /* Add padding if needed */
+    text-align: center;
+}
+.business-main-left h3{
+    font-weight: 900;
+    font-size: 150px;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 80%; /* Make the height 100% to fill the grid row */
+    background-color: white;
+}
+
+/* forgot password styling */
+.forgotpassword{
+    text-align: center;
+}
+.forgotpassword h2{
+    color: #0B63B2;
+}
+.forgotpassword form input{
+    width: 40%;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #0B63B2;
+}
+.forgotpassword form button{
+    width: 40%;
+    padding: 10px;
+    color: white;
+    background-color: #0B63B2;
+    border-radius: 5px;
+    border: none;
+}
+/* Reset password styling */
+.passwordreset{
+    text-align: center;
+}
+.passwordreset h2{
+    color: #0B63B2;
+}
+.passwordreset form input{
+    width: 40%;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #0B63B2;
+}
+.passwordreset form button{
+    width: 25%;
+    padding: 10px;
+    color: white;
+    background-color: #0B63B2;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 40px;
+}
+.chakra-pin-input {
+    width: 35px;
+    text-align: center; /* Center the placeholder text horizontally */
+    font-size: 1.2em; /* Adjust the size of the placeholder text */
+    padding: 0; /* Remove any default padding */
+    margin: 5px; /* Add margin for spacing between inputs */
+    border: 1px solid #0B63B2; /* Optional: Add border to the input fields */
+    border-radius: 5px; /* Optional: Add border radius for rounded corners */
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+}
+.chakra-pin-input:focus{
+    outline: none;
+}
+
+.chakra-pin-input::placeholder {
+    color: #ccc; /* Color of the placeholder text */
+    font-size: 0.5em; /* Make the placeholder text smaller */
+    text-align: center;
+}
+
+/* Form messages and error messages styling */
+/* Add this to your styles.css */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.message {
+    padding: 10px 20px; /* Add extra padding for better visibility */
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block; /* Adjust width based on content */
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* messages(error and success) for the other pages */
+.pop-up-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.pop-up-message {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: inline-block;
+    background-color: #d4edda; /* Default to success color */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.pop-up-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.hidden {
+    opacity: 0;
+}
+.checkout-div{
+    width: 60%;
+    margin: auto;
+}
+.checkout-div h2{
+    font-weight: 600;
+    font-size: 2.5em;
+    color: #0B63B2;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.checkout-div form button{
+    border: none;
+    color: white;
+    background-color: #03a84e;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 30px;
+    min-width: 250px;
+}
+
+/* FaQs PAge STyling  */
+.faqs-content {
+    margin: 50px 10px;
+}
+
+/* Blog list page styling  */
+/* Blog list page styling */
+.blog-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    width: 95%;
+    margin: auto;
+    column-gap: 20px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+}
+
+.blog-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.blog-image {
+    width: 100%;
+}
+
+.blog-image img {
+    width: 100%;
+    /* min-width: 500px; */
+    height: 400px;
+}
+.blog-content{
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.blog-content h2:first-of-type {
+    font-size: 14px;
+    color: #888;
+}
+
+.blog-content h2 {
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.blog-content p {
+    margin: 20px 0;
+}
+
+.tags {
+    margin: 10px 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 5px;
+    color: white;
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    font-size: 12px;
+
+}
+.tag:hover {
+    background-color: white;
+    color: #000;
+}
+
+.btn-primary {
+    background-color: #FFD700;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+.tag-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    background-color: #f3f0f0be;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.tag-sidebar h3 {
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.tag-sidebar ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.tag-sidebar ul li {
+    margin: 5px 2px;
+}
+
+.tag-sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #000;
+    padding: 3px 5px;
+    border-radius: 3px;
+    display: inline-block;
+}
+.tag-sidebar ul li a:hover{
+    background-color: #FFD700;
+    color: white;
+    border: 1px solid #f3f0f0be;
+}
+.active-tag {
+    background-color: #ff0;  /* Yellow background for the active tag */
+    color: #000;  /* Black text for the active tag */
+    font-weight: bold;
+}
+
+/* Blog details styling */
+.blog-detail-page{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.blog-detail-title{
+    text-align: center;
+}
+.blog-detail-title p{
+    font-size: 14px;
+    color: #888;
+}
+.blog-detail-title h1{
+    font-weight: 900;
+    color: #0B63B2;
+    font-size: 20px;
+}
+
+.blog-detail-content img{
+    width: 100%;
+    max-height: 500px;
+    margin-bottom: 30px;
+    
+}
+.divider {
+    border-top: 1px solid #ccc;
+    margin: 40px 0;
+}
+
+.blog-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.prev-post, .next-post {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.arrow {
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.label {
+    font-size: 14px;
+    color: #888;
+    margin: 0 5px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+@media screen and (max-width: 720px) {
+    .blog-detail-page {
+        width: 90%;
+    }
+    
+    .blog-navigation {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .prev-post, .next-post {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+
+
+/* All media queries */
+@media screen  and (max-width: 1200px){
+    .moving-text{
+        width: 500px;
+        white-space: wrap;
+    }
+    .footer-content {
+        grid-template-columns: auto;
+        row-gap: 50px;
+    }
+    .tag-sidebar ul{
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+}
+
+@media screen  and (max-width: 1000px){
+    #search{
+        display: none;
+    }
+    .search-input{
+        width: 100%;
+        font-size: 14px;
+    }
+    .search-form{
+        display: grid;
+        width: 90%;
+        grid-template-columns: 1fr auto;
+    }
+    .search-form button{
+        padding: auto;
+    }
+    .account{
+        display: none;
+    }
+    .nav-options{
+        padding: 10px;
+    }
+    .blog-container{
+        grid-template-columns: 1fr;
+    }
+    .blog-grid{
+        width: 100%;
+    }
+}
+
+@media screen  and (max-width: 880px){
+    .wrap1{
+        display: grid;
+        grid-template-columns: 100%;
+
+    }
+    .filter-card{
+        /* padding: 20px 0; */
+        margin-bottom: 50px;
+    }
+    .filter-card p{
+        margin-bottom: 30px;
+    }
+    .cart-main-things{
+        grid-template-columns: auto;
+        row-gap: 20px;
+    }
+
+
+}
+@media screen  and (max-width: 830px){
+    .products-container{
+        grid-template-columns: repeat(2, 1fr); /* Fixed number of columns to 2 */ 
+    }
+    .register-container form{
+        grid-template-columns: auto;
+    }
+    .contact-body{
+        grid-template-columns: auto;
+        row-gap: 50px;
+    }
+    .services-line {
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center;
+    }
+    
+    .services-line.reverse {
+        direction: ltr; /* No reverse on smaller screens */
+    }
+
+    .service-img {
+        height: 300px;
+    }
+
+    .serveh1 {
+        font-size: 2em;
+    }
+    .blog-card {
+        grid-template-columns: auto;
+    }
+    .blog-card img{
+        width: 400px;
+    }
+
+}
+
+
+@media screen  and (max-width: 660px){
+    .modal-body {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+    .moving-text{
+        width: 500px;
+        white-space: wrap;
+    }
+    /* .moving-text:last-child{
+        display: none;
+    } */
+    .info-12{
+        grid-template-columns: auto;
+        row-gap: 20px;
+    }
+    .subcribe-news{
+        display: grid;
+        grid-template-columns: auto;
+        row-gap: 20px;
+    }
+    .subcribe-news input{
+        width: 100%;
+    }
+    .subcribe-news button{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .right-footer{
+        font-size: smaller;
+    }
+    .item-item-div{
+        grid-template-columns: 100%;
+        row-gap: 50px;
+    }
+    .login-container{
+        grid-template-columns: auto;
+        row-gap: 50px;
+    }
+    .mission {
+        grid-template-columns: 100%;
+        row-gap: 50px;
+    }
+    .business-main{
+        grid-template-columns: auto;
+    }
+    .vertical-line{
+        width: 80%;
+        height: 1px;
+        margin: auto;
+    }
+}
+
+@media screen  and (max-width: 520px){
+    .shop-options{
+        display: grid;
+        grid-template-columns: auto;
+        row-gap: 20px;
+        justify-content: end;
+    }
+    .shop-options a{
+        width: 100%;
+    }
+    .checkout-div{
+        width: 90%;
+    }
+    .service-img {
+        height: 200px;
+    }
+
+    .serveh1 {
+        font-size: 1.5em;
+    }
+    .modal-body {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+    .footer-content {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+    }
+
+    .right-footer {
+        grid-template-columns: auto auto; /* Stack columns vertically */
+    }
+
+    .news-letter h4 {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .subcribe-news button {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+    .blog-card img{
+        width: 100%;
+        height: 320px;
+    }
+    
+
+}
+@media screen  and (max-width: 380px){
+    .products-container{
+        grid-template-columns: auto; /* Fixed number of columns to 2 */  
+    }
+    .checkout-div{
+        width: 90%;
+    }
+}

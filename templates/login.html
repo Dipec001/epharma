@@ -1,0 +1,65 @@
+{% extends 'header.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-block">
+        <div class="login-content">
+            <div class="login">
+                <h3>{% trans "Login" %}</h3>
+                <p>{% trans "Let's bring the pharmacy to you" %}</p>
+            </div>
+            <!-- Display messages -->
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message {{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="form">
+                <form action="{% url 'login' %}" method="post" novalidate>
+                    {% csrf_token %}
+                    <label for="email">{% trans "Email" %} </label><br>
+                    <input type="text" name="email" style="margin-bottom: 20px;"><br>
+                    {% if form.email.errors %}
+                        <div class="error-message">
+                            {{ form.email.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                    <label for="password">{% trans "Password" %} </label><br>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password"> 
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <i style="display: none; color: #0B63B2;" class="fas fa-eye"></i> <!-- Show icon -->
+                            <i style="display: block; color: #0B63B2;" class="fas fa-eye-slash"></i> <!-- Hide icon -->
+                        </span>
+                    </div>
+                    {% if form.password.errors %}
+                        <div class="error-message">
+                            {{ form.password.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                    <button type="submit">{% trans "Log in" %}</button>
+                </form>
+            </div>
+            <a class="forgot-password" href="{% url 'forgot-password' %}">{% trans "Forgot Password?" %}</a>
+        </div>
+    </div>
+    <div class="vertical-lines"></div>
+    <div class="register-block">
+        <div class="register-content">
+            <div class="login">
+                <h3>{% trans "Create account" %}</h3>
+                <p>{% trans "Create your eMedicstore customer account in just a few clicks! You can register either using your e-mail address or through your Facebook & Gmail account." %}</p>
+            </div>
+            <a href="{% url 'register' %}">
+                <button>{% trans "Create account" %}</button>
+            </a>            
+        </div>
+    </div>
+</div>
+{% endblock %}

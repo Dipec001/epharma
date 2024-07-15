@@ -1,0 +1,36 @@
+{% extends 'header.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="item-page">
+    <div class="item-first-div">
+        <p>{% trans "Home > All-products >" %}</p>
+        <p>{{ drug.category.name }}</p>
+    </div>
+    <div class="item-item-div">
+        <div class="item-item-img-div">
+            <img src="{{ drug.image.url }}" alt="{{ drug.name }}">
+        </div>
+        <div class="item-sec-div">
+            <h1>{{ drug.name }}</h1>
+            <hr>
+            <p>{{ request.session.currency_symbol }} {{ drug.price }}</p>
+            <h3>{% trans "Description:" %}</h3>
+            <p>{{ drug.description }}</p>
+            <h3>{% trans "Manufacturer:" %}</h3>
+            <p>{{ drug.manufacturer }}</p>
+            <div class="add-minus">
+                <!-- <i class="fa-solid fa-minus"></i>
+                <p class="cart-no">1pcs</p>
+                <i class="fa-solid fa-plus"></i> -->
+                <form action="{% url 'add-to-cart' drug.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="home-cate-button-item" type="submit">{% trans "Add to Cart" %}</button>
+                </form>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
