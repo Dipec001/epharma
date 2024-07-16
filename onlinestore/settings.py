@@ -33,7 +33,7 @@ DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 print(DEBUG)
 
-ALLOWED_HOSTS = ['epharma-91ebb7c041f9.herokuapp.com','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['epharma-85a3b303fb2a.herokuapp.com','127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -111,16 +111,16 @@ WSGI_APPLICATION = "onlinestore.wsgi.application"
 #     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 # }
 
-# #Database configuration
+# Database configuration
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
 
-#DYnamic url
+# Dynamic url
 if DEBUG:
     DOMAIN = 'http://localhost:8000'
 else:
-    DOMAIN = 'https://epharma-91ebb7c041f9.herokuapp.com'
+    DOMAIN = 'https://epharma-85a3b303fb2a.herokuapp.com'
 
 
 # Password validation
