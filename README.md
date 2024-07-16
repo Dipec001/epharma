@@ -4,7 +4,7 @@
 
 ## Live Demo
 
-Check out the live application: [ePharma Live](https://epharma-91ebb7c041f9.herokuapp.com)
+Check out the live application: [ePharma Live](https://epharma-85a3b303fb2a.herokuapp.com/)
 
 ## Features
 
